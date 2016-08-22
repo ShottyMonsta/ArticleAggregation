@@ -1,0 +1,6 @@
+<?php
+    ini_set("session.save_path", "/home/unn_w13019529/sessionData");
+	session_start();
+
+	grade.php
+?>

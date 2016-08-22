@@ -1,0 +1,632 @@
+@font-face
+{
+  font-family: Droid Sans;
+    src: url('../fonts/DroidSans-webfont.eot');
+    src: local("Droid Sans"), url('../fonts/DroidSans-webfont.woff');
+}
+
+@font-face
+{
+  font-family: News Cycle;
+    src: url('../fonts/NewsCycle-Regular.eot');
+    src: local("News Cycle"), url('../fonts/NewsCycle-Regular.ttf');
+}
+
+html
+{
+  height: 100%;
+}
+
+*
+{
+  margin: 0;
+  padding: 0;
+}
+
+article, aside, figure, footer, header, hgroup, nav, section
+{
+  display:block;
+}
+
+body
+{
+  font: normal .80em 'Droid Sans', arial, sans-serif;
+  background: #FFF;
+  color: #000;
+}
+
+p
+{
+  padding: 0 0 16px 0;
+  line-height: 1.7em;
+}
+
+img
+{
+  border: 0;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+  color: #000;
+  letter-spacing: 0em;
+  padding: 0 0 5px 0;
+}
+
+h1, h2, h3
+{
+  font: normal 140% 'News Cycle', arial;
+  margin: 0 0 15px 0;
+  padding: 15px 0 5px 0;
+}
+
+h2
+{
+  font-size: 160%;
+  padding: 9px 0 5px 0;
+}
+
+h3
+{
+  font-size: 140%;
+  padding: 5px 0 0 0;
+}
+
+h4, h6
+{
+  padding: 0 0 5px 0;
+  font: normal 120% 'Droid Sans', arial, sans-serif;
+}
+
+h5, h6
+{
+  font: italic 100% 'Droid Sans', arial;
+  padding: 0 0 15px 0;
+}
+
+h6
+{
+  font: normal 100% 'Droid Sans', arial;
+}
+
+a, a:hover
+{
+  outline: none;
+  text-decoration: none;
+  color: #ff3399;
+}
+
+a:hover
+{
+  text-decoration: underline;
+}
+
+blockquote
+{
+  margin: 20px 0;
+  padding: 10px 20px 0 20px;
+  border: 1px solid #E5E5DB;
+  background: #FFF;
+}
+
+ul
+{
+  margin: 2px 0 22px 17px;
+}
+
+ul li
+{
+  list-style-type: circle;
+  margin: 0 0 6px 0;
+  padding: 0 0 4px 5px;
+  line-height: 1.5em;
+}
+
+ol
+{
+  margin: 8px 0 22px 20px;
+}
+
+ol li
+{
+  margin: 0 0 11px 0;
+}
+
+.left
+{
+  float: left;
+  width: auto;
+  margin-right: 10px;
+}
+
+.right
+{
+  float: right;
+  width: auto;
+  margin-left: 10px;
+}
+
+.center
+{
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.loginForm
+{
+	border-style: none;
+}
+
+input[type=text], select
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]
+{
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=button]
+{
+    width: 100px;
+    float: right;
+    background-color: #A9A9A9;
+    color: white;
+    margin: 4px 4px;
+    padding: 4px 4px;
+    border: none;
+    border-radius: 4px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.Remove
+{
+    background-color: #B22222 !important;
+}
+
+input[type=button]:focus
+{
+	outline: none;
+}
+
+input[type=submit]:hover
+{
+    background-color: #45a049;
+}
+
+#main, #container, #logo, #site_content, footer
+{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main
+{
+  background: transparent;
+}
+
+
+header
+{
+  background-color: #080811;
+  height: 200px;
+}
+
+#logo
+{
+  width: 1000px;
+  height: 180px;
+  background: transparent;
+  color: #888;
+  padding: 20px 0 0 0;
+}
+
+#logo #logo_text
+{
+  width: 500px;
+  left: 0;
+  padding: 0 20px 20px 20px;
+}
+
+#logo h1, #logo h2
+{
+  font: normal 400% 'News Cycle', arial, sans-serif;
+  border-bottom: 0;
+  text-transform: none;
+  margin: 0;
+}
+
+#logo_text h1, #logo_text h1 a, #logo_text h1 a:hover
+{
+  padding: 0;
+  color: #FFF;
+  text-decoration: none;
+}
+
+#logo_text h1 a .logo_colour
+{
+  color: #ff3399;
+  text-shadow: 1px 1px #140033;
+}
+
+#logo_text a:hover .logo_colour
+{
+  color: #FFF;
+}
+
+#logo_text h2
+{
+  font-size: 140%;
+  padding: 0 0 0 0;
+  color: #FFF;
+}
+
+nav
+{
+  height: 44px;
+  margin: -44px auto 0 auto;
+  color: #fef4e9;
+  background: #080811;
+}
+
+#menu_container
+{
+  width: 1000px;
+  margin: 0 auto 0 auto;
+}
+
+#site_content
+{
+  width: 1000px;
+  overflow: hidden;
+  margin: 0px auto 0 auto;
+  padding: 15px 0 25px 0;}
+}
+
+.hiddenContent
+{
+	display:none;
+	padding: 20px 0px 0px 0px;
+}
+
+.hiddenContent p
+{
+	padding: 10px 0;
+}
+
+.content
+{
+  text-align: left;
+  width: 740px;
+  margin: 0 0 15px 0;
+  float: left;
+  font-size: 120%;
+  padding: 14px 0 0 0;}
+
+.content ul
+{
+  margin: 2px 0 22px 0px;
+}
+
+.content ul li
+{
+  list-style-type: none;
+  margin: 0 0 0 0;
+  padding: 0 0 4px 28px;
+  line-height: 1.5em;
+}
+
+footer
+{
+  font: 100% 'Droid Sans', arial, sans-serif;
+  height: 125px;
+  padding: 28px 0 5px 0;
+  text-align: center;
+  background: #080811;
+  color: #FFF;
+  margin-bottom: -20px;
+  border-top: 6px solid #;
+}
+
+footer p
+{
+  line-height: 1.7em;
+  padding: 0 0 10px 0;
+}
+
+footer a
+{
+  color: #FFF;
+  text-decoration: none;
+}
+
+footer a:hover
+{
+  color: #FFF;
+  text-decoration: underline;
+}
+
+.form_settings
+{
+  margin: 15px 0 0 0;
+}
+
+.form_settings p
+{
+  padding: 0 0 4px 0;
+}
+
+.form_settings span
+{
+  float: left;
+  width: 200px;
+  text-align: left;
+}
+
+.form_settings input, .form_settings textarea
+{
+  padding: 5px;
+  width: 299px;
+  font: 100% 'Droid Sans', arial;
+  border: 1px solid #E5E5DB;
+  background: #FFF;
+  color: #47433F;
+  border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -webkit-border: 7px 7px 7px 7px;
+}
+
+.form_settings .submit
+{
+  font: 100% 'Droid Sans', arial;
+  border: 0;
+  width: 99px;
+  margin: 0 0 0 212px;
+  height: 33px;
+  padding: 2px 0 3px 0;
+  cursor: pointer;
+  background: #1A1225;
+  color: #FFF;
+  border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -webkit-border: 7px 7px 7px 7px;
+}
+
+.form_settings textarea, .form_settings select
+{
+  font: 100% 'Droid Sans', arial;
+  width: 299px;
+}
+
+.form_settings select
+{
+  width: 310px;
+}
+
+.form_settings .checkbox
+{
+  margin: 4px 0;
+  padding: 0;
+  width: 14px;
+  border: 0;
+  background: none;
+}
+
+.separator
+{
+  width: 100%;
+  height: 0;
+  border-top: 1px solid #D9D5CF;
+  border-bottom: 1px solid #FFF;
+  margin: 0 0 20px 0;
+}
+
+table
+{
+  border-spacing: 0px 10px;
+}
+
+table tr th, table tr td
+{
+  background: #555;
+  color: #FFF;
+  padding: 15px;
+  text-align: left;
+  text-shadow: none;
+}
+
+table tr td
+{
+  background: #DDD;
+  color: #47433F;
+  border-top: 1px solid #FFF;
+  vertical-align: center;
+}
+
+table .saver
+{
+	vertical-align: top;
+}
+
+#scroll
+{
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
+  bottom: 15px;
+  right: 0;
+  background: red;
+  padding: 0;
+}
+
+#scroll a 
+{
+  float: right;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+#scroll a img
+{
+  float: right;
+  padding: 0 0 0 0;
+  margin: 0;
+}
+
+html body ul.menu ul,html body ul.menu ul li
+{
+  width: 220px;
+}
+
+html body ul.menu ul ul
+{
+  margin: 0 0 0 220px;
+}
+
+ul.menu,ul.menu *
+{
+  margin: 0;
+  padding: 0;
+}
+
+ul.menu
+{
+  display: block;
+  position: relative;
+}
+
+ul.menu li
+{
+  display: block;
+  list-style: none;
+  float: left;
+  position: relative;
+}
+
+ul.menu li:hover
+{
+  visibility: inherit;
+}
+
+ul.menu a 
+{
+  display: block;
+  position: relative;
+}
+
+ul.menu ul 
+{
+  position: absolute;
+  left: 0;
+  width: 150px;
+  top: auto;
+  left: -999999px;
+}
+
+ul.menu ul a 
+{
+  zoom: 1;
+}
+
+ul.menu ul li 
+{
+  float: left;
+  width: 150px;
+}
+
+ul.menu ul ul 
+{
+  top: 0;
+  margin: 0 0 0 150px;
+}
+
+ul.menu li:hover ul,ul.menu li:focus ul,ul.menu li.hover ul,
+ul.menu ul li:hover ul,ul.menu ul li:focus ul,ul.menu ul li.hover ul,
+ul.menu ul ul li:hover ul,ul.menu ul ul li:focus ul,ul.menu ul ul li.hover ul,
+ul.menu ul ul ul li:hover ul,ul.menu ul ul ul li:focus ul,ul.menu ul ul ul li.hover ul
+{
+  left: auto;
+}
+
+ul.menu li:hover ul ul,ul.menu li:focus ul ul,ul.menu li.hover ul ul,
+ul.menu ul li:hover ul ul,ul.menu ul li:focus ul ul,ul.menu ul li.hover ul ul,
+ul.menu ul ul li:hover ul ul,ul.menu ul ul li:focus ul ul,ul.menu ul ul li.hover ul ul,
+ul.menu ul ul ul li:hover ul ul,ul.menu ul ul ul li:focus ul ul,ul.menu ul ul ul li.hover ul ul
+{
+  left: -999999px;
+}
+
+span.arrow
+{
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  display: block;
+  background: url(../images/arrows.png) no-repeat 0 0;
+  overflow: hidden;
+  font-size: 1px;
+}
+
+ul ul span.arrow
+{
+  right: 10;
+  top: 20px;
+  background-position: 0 100%;
+}
+
+ul#nav
+{
+  float: left;
+}
+
+ul#nav ul
+{
+  background: #ff3399;
+  margin-top: 5px;
+  padding-bottom: 15px;
+}
+
+ul#nav li a
+{
+  padding:5px 20px 6px 20px;
+  font: 150% 'News Cycle', arial, sans-serif;
+  text-shadow: 1px 1px #294701;
+  text-decoration: none;
+  color:#FFF;
+  margin-right: 2px;
+}
+
+ul#nav li a:hover,ul#nav li a:focus
+{
+  color: #FFF;
+  text-decoration: underline;
+}

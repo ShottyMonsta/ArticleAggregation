@@ -1,0 +1,21 @@
+<?php
+    ini_set("session.save_path", "/home/unn_w13019529/sessionData");
+	session_start();
+
+	//load the xml file into a simplexml instance variable
+	$grades = simplexml_load_file('grade.xml');
+	 
+	//Draw a table and column headers
+	echo "<table border=\"1\">";
+	echo "<th>Grade</td><th>Result</th>\n";
+	
+	//Iterate through the grade nodes displaying the contents
+	foreach ($grades->grade as $grades)
+	{
+	    echo "<tr>";
+	    echo "<td>{$grades->gradeID}</td>";
+	    echo "<td>{$grades->result}</td>";
+	    echo "</tr>\n";
+	}
+	echo "</table>";
+?>

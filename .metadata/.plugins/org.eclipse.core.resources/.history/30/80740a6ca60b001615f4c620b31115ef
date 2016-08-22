@@ -1,0 +1,29 @@
+<?php
+    ini_set("session.save_path", "/home/unn_w13019529/sessionData");
+	session_start();
+
+	echo "<h1>Nested Elements with SimpleXML</h1>";
+// load the studentphones.xml file
+$students = simpleXML_load_file('studentphones.xml');
+ 
+// now loop through all the student nodes
+foreach ($students as $student) {
+    // refer to the student sub nodes using object notation
+    echo "<p>";
+    echo "forename ".$student->forename."<br />\n";
+    echo "surname ".$student->surname."\n";
+    // test whether a student has more than zero phones
+    if (count($student->phones)>0) {
+        echo "<br />telephone: ";
+        // parse all of the entries under phones, this time it's easier not to refer to them
+        // by name since the phone name might vary, so use the children() method instead.
+        // notice this time we're also finding the tag name and storing it in $type like you
+        // did with an associative array in an earlier week.
+        foreach ($student->phones->children() as $type => $number) {
+            echo "$type : $number, \n";
+        }
+    }
+    echo "</p>\n";
+    //the trailing p from the start of the student data.
+}
+?>

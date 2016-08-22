@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ArticleAggregator/images/arrows-white.png&apos; to &apos;arrows.png&apos;" description="Rename resource &apos;arrows-white.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="images/arrows-white.png" name="arrows.png" stamp="1462201405259" updateReferences="true"/>
+</session>

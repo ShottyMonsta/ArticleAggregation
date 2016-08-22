@@ -1,0 +1,84 @@
+<?php
+	ini_set("session.save_path", "/home/unn_w13019529/sessionData");
+	session_start();
+
+	$url = 'http://www.articlegeek.com/rss/books_rss.xml';
+	
+	//If url exists then load the xml data and process
+	if ($this->url != null)
+	{
+		//Load xml data
+		$data = simplexml_load_file($this->url);
+
+		//Query the data for just the items
+		$qry = "channel/item";
+		$items = $data->xpath($qry);
+
+		//Create the user save form
+		echo "<form action='saveUserArticles.php' method='post'>";
+		
+			//Add the article table to the form
+			echo "<table style='width:100%'>";					
+			
+			$rowID = 0;
+			
+			//Process items
+			foreach ($items as $item)
+			{
+				$title = $item->title;
+				$link = $item->link;
+				$description = $item->description;
+
+				echo "<tr>";
+					echo "<td>";
+						echo "<div class='article'>";
+							echo "<a class='expander' href='#'>".$title."</a>";
+							echo "<div class='hiddenContent'>";
+								echo "<p>".$link."</p>";
+								echo "<p>".$description."</p>";
+							echo "</div>";
+						echo "</div>";
+					echo "</td>";
+					echo "<td>";
+						echo "<input class='checkbox' type='checkbox' name='".$rowID."' value='false'>";
+					echo "</td>";
+				echo "</tr>";
+				
+				$rowID += 1;
+			}
+			echo "</table>";
+			echo "<button name='sumbit' value='submit' type='submit'>Save</button>";
+		echo "</form>";
+	}
+	else
+	{
+		//TODO - Handle XML file not being found
+		//Probably link back to index and explain to user
+		echo "URL not found!";
+	}
+
+	$userEmail = $_REQUEST['userEmail'];
+	$password = $_REQUEST['password'];
+
+	if (isValidUser($userEmail))
+	{
+		if (password_verify($password, getUserHash($userEmail)))
+		{
+			$_SESSION['userEmail'] = $userEmail;
+			$_SESSION['loggedIn'] = true;
+
+			header('Location: index.php');
+			exit();
+		}
+		else
+		{
+			header('Location: loginPage.php');
+			exit();
+		}
+	}
+	else
+	{
+		header('Location: loginPage.php');
+		exit();
+	}
+?>

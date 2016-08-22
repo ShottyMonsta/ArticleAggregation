@@ -1,0 +1,29 @@
+<?php
+	ini_set("session.save_path", "/home/unn_w13019529/sessionData");
+	session_start();
+
+	$userEmail = $_REQUEST['userEmail'];
+	$password = $_REQUEST['password'];
+
+	if (isValidUser($userEmail))
+	{
+		if (password_verify($password, getUserHash($userEmail)))
+		{
+			$_SESSION['userEmail'] = $userEmail;
+			$_SESSION['loggedIn'] = true;
+
+			header('Location: index.php');
+			exit();
+		}
+		else
+		{
+			header('Location: loginPage.php');
+			exit();
+		}
+	}
+	else
+	{
+		header('Location: loginPage.php');
+		exit();
+	}
+?>

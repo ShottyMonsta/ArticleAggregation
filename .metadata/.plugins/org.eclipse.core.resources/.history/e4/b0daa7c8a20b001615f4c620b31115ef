@@ -1,0 +1,100 @@
+<?php
+	ini_set("session.save_path", "/home/unn_w13019529/sessionData");
+	session_start();
+
+	require 'databaseConnection.php';
+	
+	$userName = $_REQUEST['UserName'];
+	$password = $_REQUEST['Password'];
+	
+	// resetUserPasswords();
+	
+	if (isValidUser($userName))
+	{
+		if (password_verify($password, getUserHash($userName)))
+		{
+			$_SESSION['uName'] = $username;
+			echo "Password verified... logged in!";
+		}
+		else
+		{
+			echo "Password not verified!";
+		}
+	}
+	else
+	{
+		echo "User doesn't exist!";
+	}
+	
+
+	function isValidUser($userName)
+	{
+		echo "Checking user " .$userName ." against: </br>";
+		//Get the database
+		$databaseConnection = new databaseConnection("localhost", "unn_w13019529", "Kotor4Noway2");
+		
+		//Set up SQL to select users table
+		$hashRequest = "Select username FROM users";
+		
+		//Prepare and then execute the query
+		$hashStmt = $databaseConnection->getDatabase()->prepare($hashRequest);
+		$hashStmt->bindParam(':userName', $userName, PDO::PARAM_STR);
+		
+		//Get the has table
+		$hashStmt->execute();
+		
+		//Return true if user name is in the database
+		while ($obj = $hashStmt->fetchObject())
+		{						
+			$row = (array) $obj;
+			foreach ($row as $user)
+			{
+				echo $user ."</br>";
+				if ($user == $userName)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}	
+	
+	function getUserHash($userName)
+	{
+		//Get the database
+		$databaseConnection = new databaseConnection("localhost", "unn_w13019529", "Kotor4Noway2");
+		
+		//Set up SQL to select users table
+		$hashRequest = "Select passwordHash FROM users WHERE userName = '$userName'";
+		
+		//Prepare and then execute the query
+		$hashStmt = $databaseConnection->getDatabase()->prepare($hashRequest);
+		$hashStmt->execute();
+		
+		//Return true if user name is in the database
+		while ($obj = $hashStmt->fetchObject())
+		{						
+			$row = (array) $obj;
+			foreach ($row as $hash)
+			{
+				return $hash;
+			}
+		}		
+	}
+	
+	// function resetUserPasswords()
+	// {
+		// $passwordHash = password_hash("Password", PASSWORD_DEFAULT);
+// 		
+		// //Get the database
+		// $databaseConnection = new databaseConnection("localhost", "unn_w13019529", "Kotor4Noway2");
+// 		
+		// //Set up SQL to select users table
+		// $hashRequest = "UPDATE users SET passwordHash='$passwordHash'";
+// 		
+		// //Prepare and then execute the query
+		// $hashStmt = $databaseConnection->getDatabase()->prepare($hashRequest);
+		// $hashStmt->execute();
+	// }
+// 	
+?>

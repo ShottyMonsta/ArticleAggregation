@@ -1,0 +1,44 @@
+<?php
+	ini_set("session.save_path", "/home/unn_w13019529/sessionData");
+	session_start();
+
+	$url = 'http://www.articlegeek.com/rss/books_rss.xml';
+	
+	//If url exists then load the xml data and process
+	if ($this->url != null)
+	{
+		//Load xml data
+		$data = simplexml_load_file($this->url);
+
+		//Query the data for just the items
+		$qry = "channel/item";
+		$items = $data->xpath($qry);
+			
+		$rowID = 0;
+		
+		
+		
+		//Process items
+		foreach ($items as $item)
+		{
+			$currentArticle = $_REQUEST[(string)$rowID];
+				
+			if ($currentArticle != null)
+			{
+				if ($currentArticle)
+				{
+					header('Location: loginPage.php');
+					exit();
+				}
+			}
+			
+			$rowID += 1;
+		}
+	}
+	else
+	{
+		//TODO - Handle XML file not being found
+		//Probably link back to index and explain to user
+		echo "<p>URL not found!</p>";
+	}
+?>
